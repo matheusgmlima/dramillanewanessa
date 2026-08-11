@@ -1,58 +1,90 @@
 import Revelar from "./ui/Revelar";
+import { site } from "@/lib/site";
 
 /**
- * Depoimentos.
+ * Relatos de alunas do Mentory Fisio.
  *
- * IMPORTANTE — esta lista está vazia de propósito.
+ * Transcritos literalmente do que elas escreveram (WhatsApp, post de
+ * Instagram, depoimento em vídeo). Nada foi reescrito nem "melhorado":
+ * depoimento polido demais soa falso, e a fala espontânea delas convence
+ * mais do que qualquer versão editada.
  *
- * Depoimento de paciente e de aluna é declaração de pessoa real. Preencher
- * com texto plausível inventado por mim criaria prova social falsa sobre gente
- * que existe, e num contexto de saúde isso é sério (além de ser exatamente o
- * tipo de coisa que faz o site cheirar a template).
+ * Os textos longos foram cortados no trecho mais relevante, com reticências
+ * marcando o corte. Cortar é honesto; parafrasear não seria.
  *
- * A Dra. Millane tem depoimentos reais nos destaques do Instagram
- * (“Depoimentos”, “Feedback”, “Alunos”). Passe os textos e nomes para cá.
- * Enquanto o array estiver vazio, a seção simplesmente não aparece — melhor
- * um site sem a seção do que um site com prova social fabricada.
+ * Vive dentro do território vinho do Mentory, e não numa seção neutra: quem
+ * lê isto é fisioterapeuta avaliando o curso, não paciente procurando
+ * consulta. Quando houver relatos de pacientes, eles entram em outro lugar.
  */
 
-type Depoimento = {
+type Relato = {
   texto: string;
   autora: string;
-  /** Ex.: "paciente — pós-operatório" ou "Dra., aluna do Mentory Fisio" */
   papel: string;
 };
 
-const depoimentos: Depoimento[] = [
-  // TODO: preencher com os depoimentos reais dos destaques do Instagram.
+const relatos: Relato[] = [
+  {
+    texto:
+      "Nunca imaginei um curso nesse modelo, que me levasse para dentro de um bloco cirúrgico!!! E tirasse nossos receios. Após atender alguns pacientes tanto no intraoperatório quanto no pós-op sob a supervisão de Millane, hoje me sinto mais segura, confiante e capacitada para atender meus pacientes.",
+    autora: "Michelly Soliê",
+    papel: "aluna do Mentory Fisio",
+  },
+  {
+    texto:
+      "Tive a oportunidade de ir até o bloco cirúrgico e ver de perto o intraoperatório, entendendo na prática como cada etapa funciona. Estar dentro do bloco cirúrgico, vendo tudo acontecer, deixou minha mente muito mais clara, segura e com respostas para dúvidas que eu tinha.",
+    autora: "Dra. Camila Vaz",
+    papel: "aluna da Turma 3 · Recife, PE",
+  },
+  {
+    texto:
+      "Foram dias de muita troca, aprendizado e aprofundamento em protocolos que realmente fazem a diferença na recuperação das pacientes. […] Seguimos firmes, elevando o nível da fisioterapia aplicada à cirurgia plástica!",
+    autora: "Dra. Isabelle Costa",
+    papel: "aluna do Mentory Fisio",
+  },
 ];
 
 export default function Depoimentos() {
-  if (depoimentos.length === 0) return null;
+  if (relatos.length === 0) return null;
 
   return (
-    <section className="bg-creme-200 py-[var(--spacing-secao)]">
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-14">
-        <Revelar>
-          <p className="t-label text-vinho-700">Quem já passou por aqui</p>
-        </Revelar>
+    <div className="mt-28">
+      <Revelar>
+        <p className="t-label text-creme-100/65">
+          Quem já passou pelo Mentory
+        </p>
+      </Revelar>
 
-        <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-          {depoimentos.map((d, i) => (
-            <Revelar as="figure" key={d.autora} atraso={i * 90}>
-              <blockquote className="regua pt-8">
-                <p className="font-display text-[1.3rem] leading-snug text-tinta-900">
-                  “{d.texto}”
-                </p>
-              </blockquote>
-              <figcaption className="mt-6">
-                <p className="t-label text-vinho-700">{d.autora}</p>
-                <p className="t-label mt-1 text-tinta-400">{d.papel}</p>
-              </figcaption>
-            </Revelar>
-          ))}
-        </div>
+      <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-3">
+        {relatos.map((relato, i) => (
+          <Revelar as="figure" key={relato.autora} atraso={i * 110}>
+            <blockquote className="regua pt-8">
+              <p className="font-display text-[1.2rem] leading-snug text-creme-100">
+                “{relato.texto}”
+              </p>
+            </blockquote>
+            <figcaption className="mt-6">
+              <p className="t-label text-creme-100">{relato.autora}</p>
+              {/* /55 dá 3.95:1 sobre o vinho-700; /70 sobe para 5.73:1.
+                  O rodapé pode usar /55 porque lá o fundo é vinho-950. */}
+              <p className="t-label mt-1.5 text-creme-100/70">
+                {relato.papel}
+              </p>
+            </figcaption>
+          </Revelar>
+        ))}
       </div>
-    </section>
+
+      <Revelar className="mt-12">
+        <a
+          href={site.instagramMentory.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link-regua t-label cursor-pointer text-creme-100/70"
+        >
+          Mais relatos em {site.instagramMentory.handle}
+        </a>
+      </Revelar>
+    </div>
   );
 }

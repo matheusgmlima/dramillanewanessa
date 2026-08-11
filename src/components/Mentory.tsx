@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Revelar from "./ui/Revelar";
 import Botao from "./ui/Botao";
+import Depoimentos from "./Depoimentos";
 import { site, linkWhatsapp } from "@/lib/site";
 
 /**
@@ -86,6 +87,10 @@ export default function Mentory() {
             </Revelar>
           ))}
         </div>
+
+        {/* Relatos das alunas vêm antes do CTA: prova social imediatamente
+            antes do pedido de ação converte melhor do que depois dele. */}
+        <Depoimentos />
 
         {/* Turma vigente + CTA.
             Número de turma e mês são a prova mais barata de que isto é um

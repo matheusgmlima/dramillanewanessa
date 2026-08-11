@@ -4,7 +4,6 @@ import Atendimento from "@/components/Atendimento";
 import Metodo from "@/components/Metodo";
 import Mentory from "@/components/Mentory";
 import Consultorio from "@/components/Consultorio";
-import Depoimentos from "@/components/Depoimentos";
 import Rodape from "@/components/Rodape";
 
 export default function Home() {
@@ -15,10 +14,11 @@ export default function Home() {
         <Hero />
         <Atendimento />
         <Metodo />
-        {/* A virada de público acontece aqui: creme → vinho. */}
+        {/* A virada de público acontece aqui: creme para vinho.
+            Os relatos das alunas moram dentro do Mentory, junto de quem
+            eles precisam convencer. */}
         <Mentory />
         <Consultorio />
-        <Depoimentos />
       </main>
       <Rodape />
     </>
