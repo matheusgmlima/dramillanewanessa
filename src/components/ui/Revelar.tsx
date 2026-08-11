@@ -34,18 +34,41 @@ export default function Revelar({
     const el = ref.current;
     if (!el) return;
 
-    const obs = new IntersectionObserver(
-      ([entrada]) => {
-        if (entrada.isIntersecting) {
-          setVisivel(true);
-          obs.disconnect();
-        }
+    const temObserver = typeof IntersectionObserver !== "undefined";
+    let obs: IntersectionObserver | undefined;
+
+    if (temObserver) {
+      obs = new IntersectionObserver(
+        ([entrada]) => {
+          if (entrada.isIntersecting) {
+            setVisivel(true);
+            obs?.disconnect();
+          }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      );
+      obs.observe(el);
+    }
+
+    // Rede de segurança. Com observer, espera 4s antes de desistir (cobre aba
+    // em segundo plano, que não dispara o callback). Sem observer, revela no
+    // próximo tick: perder a animação é irrelevante perto de deixar a página
+    // em branco.
+    //
+    // O timeout também evita chamar setState de forma síncrona dentro do
+    // efeito, que renderizaria duas vezes.
+    const rede = window.setTimeout(
+      () => {
+        setVisivel(true);
+        obs?.disconnect();
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      temObserver ? 4000 : 0,
     );
 
-    obs.observe(el);
-    return () => obs.disconnect();
+    return () => {
+      window.clearTimeout(rede);
+      obs?.disconnect();
+    };
   }, []);
 
   return (

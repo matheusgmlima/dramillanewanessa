@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Revelar from "./ui/Revelar";
+import Video from "./ui/Video";
 import { linkWhatsapp } from "@/lib/site";
 
 /**
@@ -26,7 +27,7 @@ const atendimentos = [
     texto:
       "Acompanho a cirurgia dentro do centro cirúrgico e realizo as intervenções necessárias durante o próprio procedimento, junto à equipe. Estar ali muda a condução do pós inteiro: eu sei exatamente o que foi feito no seu tecido, em vez de deduzir depois pelo relatório.",
     destaque: true,
-    foto: null,
+    foto: "/fotos/intra-1.jpg",
     contexto: "intraoperatorio" as const,
     cta: "Falar sobre intraoperatório",
   },
@@ -98,31 +99,19 @@ export default function Atendimento() {
                     invertido ? "lg:order-2 lg:col-start-8" : "lg:order-1"
                   }`}
                 >
-                  {item.foto ? (
-                    <div className="relative aspect-[4/5] overflow-hidden">
-                      <Image
-                        src={item.foto}
-                        alt=""
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 38vw"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                  ) : (
-                    <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-vinho-700">
-                      <Image
-                        src="/marca/simbolo.png"
-                        alt=""
-                        width={784}
-                        height={784}
-                        sizes="(max-width: 1024px) 60vw, 22vw"
-                        className="h-auto w-[58%] opacity-25 invert"
-                      />
-                      <span className="t-label absolute bottom-8 left-8 text-creme-100/70">
-                        Dentro do bloco
-                      </span>
-                    </div>
-                  )}
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <Image
+                      src={item.foto}
+                      alt={
+                        item.destaque
+                          ? "Dra. Millane Wanessa em centro cirúrgico, durante um procedimento"
+                          : ""
+                      }
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 38vw"
+                      className="object-cover object-top"
+                    />
+                  </div>
                 </div>
 
                 {/* Texto */}
@@ -160,6 +149,51 @@ export default function Atendimento() {
             );
           })}
         </div>
+
+        {/* O vídeo dela explicando o intraoperatório.
+            Fica no fim da seção, e não colado ao item 01, porque um bloco de
+            mídia no meio quebraria o ritmo das quatro linhas. A frase ao lado
+            é fala dela no próprio vídeo: copy que só existe aqui, impossível
+            de confundir com texto de template. */}
+        <Revelar className="mt-28">
+          <div className="regua grid grid-cols-1 items-start gap-x-12 gap-y-10 pt-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <Video
+                src="/video/intraoperatorio.mp4"
+                poster="/video/intraoperatorio-poster.jpg"
+                descricao="Dra. Millane Wanessa explica como funciona o acompanhamento intraoperatório dentro do centro cirúrgico"
+                legenda="30 segundos · com legendas"
+              />
+            </div>
+
+            <div className="lg:col-span-5 lg:col-start-6">
+              <p className="t-label text-vinho-700">Por dentro do bloco</p>
+
+              <blockquote className="t-display mt-7 max-w-[13ch]">
+                “Enxergamos o sofrimento do{" "}
+                <span className="t-italico">tecido</span>.”
+              </blockquote>
+
+              <p className="mt-8 max-w-[44ch] text-tinta-700">
+                Nesses trinta segundos ela mostra o que acontece dentro do
+                centro cirúrgico e por que estar ali muda a recuperação. Vale
+                mais do que qualquer explicação escrita.
+              </p>
+            </div>
+
+            <div className="lg:col-span-2 lg:col-start-11">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/fotos/intra-2.jpg"
+                  alt="Intervenção sendo realizada durante a cirurgia"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 16vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </Revelar>
       </div>
     </section>
   );

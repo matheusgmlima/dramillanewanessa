@@ -236,6 +236,17 @@ body {
   transform: none;
 }
 
+/* Rede de segurança: esconder conteúdo por CSS e depender de JS para revelá-lo
+   significa que uma falha de script deixa a página inteira em branco. Sem
+   scripting, o conteúdo nasce visível. O componente Revelar cobre o outro
+   caso (JS ativo, mas sem IntersectionObserver). */
+@media (scripting: none) {
+  .revelar {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
