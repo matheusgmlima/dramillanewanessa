@@ -8,7 +8,7 @@ const navegacao = [
   { rotulo: "Atendimento", href: "#atendimento" },
   { rotulo: "Método", href: "#metodo" },
   { rotulo: "Consultório", href: "#consultorio" },
-  { rotulo: "Mentory Fisio", href: "#mentory-fisio" },
+  { rotulo: "Mentory Fisio", href: "#mentory-fisio", destaque: true },
 ];
 
 /**
@@ -68,6 +68,14 @@ export default function Cabecalho() {
               className="t-label cursor-pointer text-tinta-700 transition-colors duration-300 hover:text-vinho-700"
             >
               {item.rotulo}
+              {/* Ponto discreto sinalizando turma aberta: informação viva no
+                  menu, sem virar badge piscante de promoção. */}
+              {item.destaque && (
+                <span
+                  aria-label="turma com inscrições abertas"
+                  className="ml-1.5 inline-block h-1 w-1 translate-y-[-3px] rounded-full bg-vinho-700 align-middle"
+                />
+              )}
             </a>
           ))}
           <a

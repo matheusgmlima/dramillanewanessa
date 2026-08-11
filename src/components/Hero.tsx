@@ -41,12 +41,12 @@ export default function Hero() {
           <p className="t-label text-vinho-700">
             Fisioterapia Dermatofuncional
             <span className="mx-3 text-tinta-400">·</span>
-            {site.cidade} — {site.estado}
+            {site.cidade}, {site.estado}
           </p>
 
           <h1 className="mt-7 max-w-[520px]">
             <span className="sr-only">
-              {site.nomeCompleto} — {site.titulo}
+              {site.nomeCompleto}, {site.titulo}
             </span>
             <Image
               src="/marca/logo-vinho.png"
@@ -62,7 +62,7 @@ export default function Hero() {
             Cuido da recuperação de quem passou por cirurgia plástica, convive
             com lipedema ou acabou de ser mãe. São{" "}
             <span className="text-vinho-700">{site.experiencia.anos} anos</span>{" "}
-            acompanhando cada fase de perto — do primeiro curativo à alta.
+            acompanhando cada fase de perto, do centro cirúrgico à alta.
           </p>
 
           <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -71,20 +71,32 @@ export default function Hero() {
             </Botao>
           </div>
 
-          {/* Porta secundária: outro público, tratado com peso visual menor
-              mas presença clara. Quem é fisioterapeuta se reconhece na frase
-              e não precisa caçar o curso página abaixo. */}
+          {/* Porta secundária para o outro público.
+              Antes isto era uma frase solta que quebrava em duas linhas e
+              deixava um vão enorme abaixo. Virou uma faixa com régua: ocupa
+              largura em vez de altura, e carrega informação concreta (turma
+              aberta) em vez de um convite vago. */}
           <a
             href="#mentory-fisio"
-            className="group mt-10 inline-flex max-w-fit items-baseline gap-2.5 text-tinta-500 transition-colors duration-300 hover:text-vinho-700"
+            className="group regua mt-14 flex items-center justify-between gap-6 py-5 text-tinta-700 transition-colors duration-300 hover:text-vinho-700"
           >
-            <span className="t-label">É fisioterapeuta?</span>
-            <span className="t-titulo t-italico text-[1.15rem] leading-none">
-              Conheça o Mentory Fisio
+            <span>
+              <span className="t-label block text-tinta-400">
+                Para fisioterapeutas
+              </span>
+              <span className="font-display mt-1.5 block text-[1.3rem] leading-tight">
+                Mentory Fisio
+                <span className="t-italico"> Turma {site.mentory.turma}</span>
+                {site.mentory.inscricoesAbertas && (
+                  <span className="t-label ml-3 align-middle text-vinho-700">
+                    inscrições abertas
+                  </span>
+                )}
+              </span>
             </span>
             <span
               aria-hidden="true"
-              className="transition-transform duration-300 group-hover:translate-y-0.5"
+              className="shrink-0 text-xl transition-transform duration-300 group-hover:translate-y-1"
             >
               ↓
             </span>
@@ -100,6 +112,9 @@ export default function Hero() {
             className="absolute right-0 bottom-0 h-[78%] w-[68%] bg-vinho-700 lg:h-[82%] lg:w-[60%]"
           />
 
+          {/* translate-x desloca a figura para a direita no desktop, de modo
+              que a franja do recorte no cabelo caia sobre o creme em vez de
+              sobre o bloco vinho, onde o serrilhado ficava visível. */}
           <Image
             src="/fotos/M_171-cut.png"
             alt={`${site.nomeCompleto}, fisioterapeuta dermatofuncional em ${site.cidade}`}
@@ -107,7 +122,7 @@ export default function Hero() {
             height={1484}
             priority
             sizes="(max-width: 1024px) 88vw, 46vw"
-            className="relative mx-auto h-auto w-[84%] max-w-[560px] object-contain lg:mr-0 lg:ml-auto lg:w-full"
+            className="relative mx-auto h-auto w-[84%] max-w-[560px] object-contain lg:mr-0 lg:ml-auto lg:w-full lg:translate-x-[6%] xl:translate-x-[8%]"
           />
         </div>
       </div>

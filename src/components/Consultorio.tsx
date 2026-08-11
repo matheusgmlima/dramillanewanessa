@@ -29,19 +29,20 @@ export default function Consultorio() {
               <div className="regua pt-6">
                 <dt className="t-label text-tinta-400">Endereço</dt>
                 <dd className="mt-2 text-[1.0625rem] text-tinta-900">
-                  {site.endereco.logradouro ? (
-                    <>
-                      {site.endereco.logradouro}
-                      <br />
-                      {site.endereco.bairro} — {site.endereco.cidade}/
-                      {site.endereco.estado}
-                    </>
-                  ) : (
-                    <span className="text-tinta-500">
-                      {site.cidade} — {site.estado}. Envio o endereço completo e
-                      as orientações de acesso na confirmação do agendamento.
-                    </span>
-                  )}
+                  {site.endereco.predio}
+                  <br />
+                  {site.endereco.logradouro}
+                  <br />
+                  {site.endereco.bairro}, {site.endereco.cidade}/
+                  {site.endereco.estado}
+                  <a
+                    href={site.endereco.mapa}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-regua t-label mt-4 block w-fit cursor-pointer text-vinho-700"
+                  >
+                    Ver no mapa
+                  </a>
                 </dd>
               </div>
 
@@ -60,7 +61,7 @@ export default function Consultorio() {
                 <dd className="mt-2 text-[1.0625rem] text-tinta-900">
                   {site.whatsapp.exibicao}
                   <span className="mt-1 block text-tinta-500">
-                    WhatsApp — respondo pessoalmente.
+                    Pelo WhatsApp. Eu respondo pessoalmente.
                   </span>
                 </dd>
               </div>

@@ -19,7 +19,7 @@ const etapas = [
   {
     titulo: "Condução, não sessão avulsa",
     texto:
-      "A recuperação tem fases. O que ajuda na primeira semana pode atrapalhar na quarta — o plano acompanha essa mudança.",
+      "A recuperação tem fases. O que ajuda na primeira semana pode atrapalhar na quarta, e o plano acompanha essa mudança.",
   },
   {
     titulo: "Você sabe o que está acontecendo",
@@ -59,10 +59,8 @@ export default function Metodo() {
                 </p>
               </div>
               <div>
-                <p className="t-titulo text-vinho-700">CREFITO</p>
-                <p className="t-label mt-1 text-tinta-500">
-                  fisioterapeuta registrada
-                </p>
+                <p className="t-titulo text-vinho-700">178254-F</p>
+                <p className="t-label mt-1 text-tinta-500">CREFITO</p>
               </div>
             </div>
           </Revelar>

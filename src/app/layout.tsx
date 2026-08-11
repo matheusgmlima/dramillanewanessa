@@ -29,13 +29,15 @@ export const metadata: Metadata = {
     template: "%s · Dra. Millane Wanessa",
   },
   description:
-    "Fisioterapia dermatofuncional em Recife: pós-operatório de cirurgia plástica, lipedema e pós-parto. 13 anos de experiência clínica. Agende sua consulta.",
+    "Fisioterapia dermatofuncional em Recife: acompanhamento intraoperatório, pós-operatório de cirurgia plástica, lipedema e pós-parto. Consultório no Pina. Agende sua consulta.",
   keywords: [
     "fisioterapia dermatofuncional Recife",
     "pós-operatório cirurgia plástica Recife",
+    "fisioterapeuta intraoperatório Recife",
     "tratamento de lipedema Recife",
     "fisioterapia pós-parto Recife",
     "drenagem linfática pós-operatório",
+    "fisioterapeuta Pina Recife",
     "Mentory Fisio",
   ],
   authors: [{ name: "Dra. Millane Wanessa" }],
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Dra. Millane Wanessa",
     title: "Dra. Millane Wanessa | Fisioterapia Dermatofuncional em Recife",
     description:
-      "Pós-operatório de cirurgia plástica, lipedema e pós-parto. 13 anos de experiência clínica em Recife.",
+      "Do centro cirúrgico até a alta: intraoperatório, pós-operatório de cirurgia plástica, lipedema e pós-parto. Consultório no Pina, Recife.",
   },
   robots: { index: true, follow: true },
 };

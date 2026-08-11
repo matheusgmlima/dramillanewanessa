@@ -42,7 +42,11 @@ export default function Rodape() {
               className="h-14 w-auto"
             />
             <p className="t-label mt-6 text-creme-100/55">
-              {site.titulo} · {site.cidade} — {site.estado}
+              {site.titulo} · {site.crefito}
+            </p>
+            <p className="t-label mt-2 max-w-[34ch] text-creme-100/55">
+              {site.endereco.predio}, {site.endereco.logradouro},{" "}
+              {site.endereco.bairro}, {site.endereco.cidade}/{site.endereco.estado}
             </p>
           </div>
 
@@ -62,6 +66,14 @@ export default function Rodape() {
               className="link-regua t-label w-fit cursor-pointer text-creme-100/80"
             >
               {site.instagram.handle}
+            </a>
+            <a
+              href={site.instagramMentory.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-regua t-label w-fit cursor-pointer text-creme-100/80"
+            >
+              {site.instagramMentory.handle}
             </a>
           </div>
         </div>

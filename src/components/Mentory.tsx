@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Revelar from "./ui/Revelar";
 import Botao from "./ui/Botao";
-import { linkWhatsapp } from "@/lib/site";
+import { site, linkWhatsapp } from "@/lib/site";
 
 /**
  * MENTORY FISIO — a virada.
@@ -29,7 +29,7 @@ const pilares = [
   {
     titulo: "Três meses de mentoria",
     texto:
-      "O curso acaba e a insegurança volta na primeira paciente difícil. Por isso o acompanhamento continua depois — quando as dúvidas de verdade aparecem.",
+      "O curso acaba e a insegurança volta na primeira paciente difícil. Por isso o acompanhamento continua depois, que é quando as dúvidas de verdade aparecem.",
   },
 ];
 
@@ -87,35 +87,40 @@ export default function Mentory() {
           ))}
         </div>
 
-        {/* Turma presencial + CTA */}
+        {/* Turma vigente + CTA.
+            Número de turma e mês são a prova mais barata de que isto é um
+            programa que já rodou sete vezes, e não uma promessa de landing. */}
         <Revelar className="mt-28">
           <div className="regua grid grid-cols-1 gap-x-12 gap-y-10 pt-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <p className="t-label text-creme-100/65">
-                Próxima turma presencial · Recife
+                Turma {site.mentory.turma} · Presencial em {site.cidade}
               </p>
-              <p className="t-titulo mt-5 max-w-[24ch] text-creme-100">
-                Vivência clínica em centro cirúrgico e consultório, presencial
-                em Recife.
+
+              <p className="t-titulo mt-5 max-w-[26ch] text-creme-100">
+                A oitava turma acontece em {site.mentory.periodo}, com
+                inscrições abertas.
               </p>
-              <p className="mt-6 max-w-[46ch] text-creme-100/75">
-                Vagas limitadas pela natureza da vivência — centro cirúrgico não
-                comporta turma grande. Fale comigo para saber as datas da
-                próxima turma e as condições.
+
+              <p className="mt-6 max-w-[48ch] text-creme-100/75">
+                As vagas são limitadas pela própria natureza da vivência, já que
+                centro cirúrgico não comporta turma grande. Me chama no WhatsApp
+                para saber as datas exatas, o investimento e as condições de
+                pagamento.
               </p>
             </div>
 
-            <div className="flex flex-col items-start gap-4 lg:col-span-4 lg:col-start-9 lg:items-end lg:justify-end">
-              <Botao href={linkWhatsapp("mentory")} externo variante="claro">
-                Quero saber mais
+            <div className="flex flex-col items-start gap-5 lg:col-span-4 lg:col-start-9 lg:items-end lg:justify-end">
+              <Botao href={linkWhatsapp("turma")} externo variante="claro">
+                Quero minha vaga
               </Botao>
               <a
-                href={linkWhatsapp("curso")}
+                href={site.instagramMentory.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-regua t-label cursor-pointer text-creme-100/70"
               >
-                Datas da próxima turma
+                {site.instagramMentory.handle}
               </a>
             </div>
           </div>

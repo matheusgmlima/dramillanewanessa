@@ -1,6 +1,6 @@
 /**
  * Configuração central do site.
- * Tudo que muda com o tempo (telefone, endereço, datas de turma) mora aqui,
+ * Tudo que muda com o tempo (telefone, endereço, turma vigente) mora aqui,
  * para não precisar caçar string espalhada pelos componentes.
  */
 
@@ -8,13 +8,13 @@ export const site = {
   nome: "Millane Wanessa",
   nomeCompleto: "Dra. Millane Wanessa",
   titulo: "Fisioterapia Dermatofuncional",
+  crefito: "CREFITO 178254-F",
   cidade: "Recife",
   estado: "PE",
 
-  // TODO: confirmar com o cliente
   whatsapp: {
-    numero: "5581999950804", // formato internacional, sem símbolos
-    exibicao: "(81) 99995-0804",
+    numero: "5581999990804",
+    exibicao: "(81) 99999-0804",
   },
 
   instagram: {
@@ -22,38 +22,58 @@ export const site = {
     url: "https://www.instagram.com/dra.millanewanessa/",
   },
 
+  instagramMentory: {
+    handle: "@mentoryfisio",
+    url: "https://www.instagram.com/mentoryfisio/",
+  },
+
   endereco: {
-    // TODO: confirmar endereço completo do consultório
-    logradouro: "",
-    bairro: "",
+    predio: "Empresarial Rio Mar, Torre 4, sala 809",
+    logradouro: "Av. República do Líbano, 251",
+    bairro: "Pina",
     cidade: "Recife",
     estado: "PE",
+    /** Busca pelo endereço completo; evita depender de chave de API de mapa. */
+    mapa: "https://www.google.com/maps/search/?api=1&query=Empresarial+Rio+Mar+Torre+4+Av+Republica+do+Libano+251+Pina+Recife+PE",
   },
 
   atendimento: {
-    // TODO: confirmar horários
     dias: "Segunda a sexta",
     horario: "08h às 18h",
   },
 
   experiencia: {
-    anos: 13,
+    anos: 6,
+  },
+
+  mentory: {
+    turma: 8,
+    periodo: "setembro",
+    inscricoesAbertas: true,
   },
 } as const;
 
-type MensagemContexto = "consulta" | "lipedema" | "posparto" | "mentory" | "curso";
+type MensagemContexto =
+  | "consulta"
+  | "intraoperatorio"
+  | "lipedema"
+  | "posparto"
+  | "mentory"
+  | "turma";
 
 const mensagens: Record<MensagemContexto, string> = {
   consulta:
     "Olá, Dra. Millane! Vim pelo site e gostaria de agendar uma consulta de pós-operatório.",
+  intraoperatorio:
+    "Olá, Dra. Millane! Vim pelo site e gostaria de saber sobre o acompanhamento intraoperatório.",
   lipedema:
     "Olá, Dra. Millane! Vim pelo site e gostaria de saber mais sobre o tratamento de lipedema.",
   posparto:
     "Olá, Dra. Millane! Vim pelo site e gostaria de saber mais sobre o acompanhamento pós-parto.",
   mentory:
     "Olá! Sou fisioterapeuta e vim pelo site. Quero saber mais sobre o Mentory Fisio.",
-  curso:
-    "Olá! Sou fisioterapeuta e vim pelo site. Quero informações sobre a próxima turma do curso presencial em Recife.",
+  turma:
+    "Olá! Sou fisioterapeuta e vim pelo site. Quero me inscrever na Turma 8 do Mentory Fisio.",
 };
 
 /**
