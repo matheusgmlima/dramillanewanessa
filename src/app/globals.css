@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — Dra. Millane Wanessa
+   Cores extraídas do kit de marca oficial (MILLANE W. - BRANDING):
+   vinho #710014 · creme #F2F1ED · preto #000000
+   ============================================================ */
+
+@theme {
+  /* --- Vinho (cor-mãe da marca) --- */
+  --color-vinho-950: #2a0008;
+  --color-vinho-900: #3d000b;
+  --color-vinho-800: #55000f;
+  --color-vinho-700: #710014; /* OFICIAL */
+  --color-vinho-600: #8c1526;
+  --color-vinho-500: #a62f3f;
+  --color-vinho-400: #c2606c;
+  --color-vinho-300: #d9949c;
+  --color-vinho-200: #ecc4c9;
+  --color-vinho-100: #f7e6e8;
+
+  /* --- Creme / papel --- */
+  --color-creme-50: #fbfbf9;
+  --color-creme-100: #f2f1ed; /* OFICIAL */
+  --color-creme-200: #e9e7e0;
+  --color-creme-300: #dcd9cf;
+  --color-creme-400: #c7c2b4;
+
+  /* --- Tinta (texto) --- */
+  --color-tinta-900: #14100f;
+  --color-tinta-700: #2e2725;
+  --color-tinta-500: #5c524e;
+  /* #857A75 dava só 3.69:1 sobre o creme — reprovado no AA para texto.
+     #736862 mantém o cinza quente e chega a 4.78:1. */
+  --color-tinta-400: #736862;
+
+  /* --- Areia (calor, vindo da luz das fotos) --- */
+  --color-areia-300: #cbbba2;
+  --color-areia-500: #a8916f;
+
+  /* --- Semânticos --- */
+  --color-fundo: var(--color-creme-100);
+  --color-texto: var(--color-tinta-900);
+  --color-marca: var(--color-vinho-700);
+
+  /* --- Tipografia --- */
+  --font-display: var(--font-bodoni), "Bodoni Moda", Didot, serif;
+  --font-sans: var(--font-jost), "Jost", system-ui, sans-serif;
+
+  /* --- Ritmo vertical (density 4 — standard/arejado) --- */
+  --spacing-secao: 7.5rem;
+  --spacing-secao-lg: 11rem;
+
+  /* --- Easing: nada de bounce. Editorial é sóbrio. --- */
+  --ease-marca: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-creme-100);
+  color: var(--color-tinta-900);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-vinho-700);
+  color: var(--color-creme-100);
+}
+
+/* Foco visível — nunca remover (a11y crítico) */
+:focus-visible {
+  outline: 2px solid var(--color-vinho-700);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.sobre-vinho :focus-visible {
+  outline-color: var(--color-creme-100);
+}
+
+/* ============================================================
+   TIPOGRAFIA — escala editorial
+   Bodoni Moda é uma didone: em corpo grande precisa de tracking
+   negativo e leading curto, senão "boia" na página.
+   ============================================================ */
+
+.t-hero {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.25rem, 13vw, 10.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+}
+
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6.5vw, 5.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+}
+
+.t-titulo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.t-italico {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Label: a sans geométrica da tagline do logo dela —
+   caixa alta, peso leve, tracking bem aberto. */
+.t-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  line-height: 1.4;
+}
+
+.t-corpo-grande {
+  font-size: clamp(1.0625rem, 1.6vw, 1.3125rem);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ============================================================
+   TEXTURA DE MARCA
+   A estampa de monograma WM é um ativo real do kit dela.
+   Usada em opacidade baixíssima vira uma "marca d'água" que
+   nenhum outro site tem.
+   ============================================================ */
+
+.textura-wm {
+  position: relative;
+  isolation: isolate;
+}
+
+.textura-wm::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/marca/estampa-wm-alpha.png");
+  background-size: 460px auto;
+  background-repeat: repeat;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ============================================================
+   LINHA / RÉGUA — separadores editoriais em vez de sombras
+   ============================================================ */
+
+.regua {
+  border-top: 1px solid color-mix(in srgb, var(--color-tinta-900) 14%, transparent);
+}
+
+.sobre-vinho .regua {
+  border-top-color: color-mix(in srgb, var(--color-creme-100) 22%, transparent);
+}
+
+/* ============================================================
+   LINK COM SUBLINHADO QUE CRESCE
+   Substitui o "botão arredondado com sombra" em links de texto.
+   ============================================================ */
+
+.link-regua {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+/* Área de toque de 44px sem inflar o texto.
+   Um link de 17px de altura é impossível de acertar com o dedo; o pseudo-
+   elemento estende a região clicável para fora sem mexer no layout. */
+.link-regua::before {
+  content: "";
+  position: absolute;
+  inset: -14px -10px;
+}
+
+.link-regua::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-marca);
+}
+
+.link-regua:hover::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+/* ============================================================
+   REVELAÇÃO EM SCROLL
+   Sutil e com propósito. A entrada acompanha a leitura,
+   não chama atenção para si mesma.
+   ============================================================ */
+
+.revelar {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.85s var(--ease-marca),
+    transform 0.85s var(--ease-marca);
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
