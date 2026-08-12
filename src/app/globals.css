@@ -95,10 +95,27 @@ body {
 }
 
 /* ============================================================
-   TIPOGRAFIA — escala editorial
-   Bodoni Moda é uma didone: em corpo grande precisa de tracking
-   negativo e leading curto, senão "boia" na página.
+   COMPONENTES
+
+   Tudo daqui para baixo mora em @layer components de propósito.
+
+   Regra do CSS em cascata: estilo fora de qualquer layer sempre vence
+   estilo dentro de um layer, independente de especificidade. Como o
+   Tailwind v4 publica os utilitários em @layer utilities, uma classe
+   solta como `.link-regua { display: inline-block }` derrotava `block`,
+   `flex` e afins escritos no JSX — silenciosamente, porque a classe
+   utilitária aparecia no HTML mas não surtia efeito.
+
+   Dentro de @layer components a ordem se inverte e o utilitário volta a
+   poder sobrescrever, que é o comportamento que se espera ao escrever
+   uma classe no elemento.
    ============================================================ */
+
+@layer components {
+
+/* ---- TIPOGRAFIA — escala editorial
+   Bodoni Moda é uma didone: em corpo grande precisa de tracking
+   negativo e leading curto, senão "boia" na página. ---- */
 
 .t-hero {
   font-family: var(--font-display);
@@ -146,12 +163,10 @@ body {
   font-weight: 300;
 }
 
-/* ============================================================
-   TEXTURA DE MARCA
+/* ---- TEXTURA DE MARCA
    A estampa de monograma WM é um ativo real do kit dela.
    Usada em opacidade baixíssima vira uma "marca d'água" que
-   nenhum outro site tem.
-   ============================================================ */
+   nenhum outro site tem. ---- */
 
 .textura-wm {
   position: relative;
@@ -170,9 +185,7 @@ body {
   z-index: -1;
 }
 
-/* ============================================================
-   LINHA / RÉGUA — separadores editoriais em vez de sombras
-   ============================================================ */
+/* ---- LINHA / RÉGUA — separadores editoriais em vez de sombras ---- */
 
 .regua {
   border-top: 1px solid color-mix(in srgb, var(--color-tinta-900) 14%, transparent);
@@ -182,10 +195,8 @@ body {
   border-top-color: color-mix(in srgb, var(--color-creme-100) 22%, transparent);
 }
 
-/* ============================================================
-   LINK COM SUBLINHADO QUE CRESCE
-   Substitui o "botão arredondado com sombra" em links de texto.
-   ============================================================ */
+/* ---- LINK COM SUBLINHADO QUE CRESCE
+   Substitui o "botão arredondado com sombra" em links de texto. ---- */
 
 .link-regua {
   position: relative;
@@ -220,11 +231,9 @@ body {
   transform-origin: right;
 }
 
-/* ============================================================
-   REVELAÇÃO EM SCROLL
+/* ---- REVELAÇÃO EM SCROLL
    Sutil e com propósito. A entrada acompanha a leitura,
-   não chama atenção para si mesma.
-   ============================================================ */
+   não chama atenção para si mesma. ---- */
 
 .revelar {
   opacity: 0;
@@ -249,6 +258,8 @@ body {
     transform: none;
   }
 }
+
+} /* fim de @layer components */
 
 @media (prefers-reduced-motion: reduce) {
   html {

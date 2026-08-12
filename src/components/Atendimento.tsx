@@ -166,36 +166,37 @@ export default function Atendimento() {
               />
             </div>
 
-            <div className="lg:col-span-5 lg:col-start-6">
-              <p className="t-label text-vinho-700">Por dentro do bloco</p>
+            {/* Antes a foto morava numa terceira coluna estreita à direita,
+                e o vídeo vertical (9:16) deixava a metade direita do bloco
+                com uns 400px de vazio. Empilhar texto e foto numa coluna só
+                aproveita a altura que o vídeo impõe, em vez de brigar com
+                ela. */}
+            <div className="flex flex-col gap-y-10 lg:col-span-7 lg:col-start-6">
+              <div>
+                <p className="t-label text-vinho-700">Por dentro do bloco</p>
 
-              <blockquote className="t-display mt-7 max-w-[13ch]">
-                “Enxergamos o sofrimento do{" "}
-                <span className="t-italico">tecido</span>.”
-              </blockquote>
+                <blockquote className="t-display mt-7 max-w-[13ch]">
+                  “Enxergamos o sofrimento do{" "}
+                  <span className="t-italico">tecido</span>.”
+                </blockquote>
 
-              <p className="mt-8 max-w-[46ch] text-tinta-700">
-                Em trinta segundos eu mostro o que acontece dentro do centro
-                cirúrgico e por que a minha presença ali muda a condução da sua
-                recuperação.
-              </p>
-            </div>
+                <p className="mt-8 max-w-[46ch] text-tinta-700">
+                  Em trinta segundos eu mostro o que acontece dentro do centro
+                  cirúrgico e por que a minha presença ali muda a condução da
+                  sua recuperação.
+                </p>
+              </div>
 
-            {/* Some no celular de propósito.
-                Empilhada, esta foto caía logo antes do retrato que abre a
-                seção seguinte, e duas imagens coladas sem texto entre elas
-                travam a leitura. No desktop ela ocupa a coluna lateral e
-                fecha a composição; no celular o vídeo já mostra o bloco
-                cirúrgico, então ela não acrescenta o bastante para justificar
-                o atropelo visual. */}
-            <div className="hidden lg:col-span-2 lg:col-start-11 lg:block">
-              <div className="relative aspect-[3/4] overflow-hidden">
+              {/* Continua fora do celular: empilhada, cairia colada ao
+                  retrato que abre a seção seguinte, e duas imagens seguidas
+                  sem texto entre elas travam a leitura. */}
+              <div className="relative hidden aspect-[16/9] overflow-hidden lg:block">
                 <Image
                   src="/fotos/intra-2.jpg"
                   alt="Intervenção sendo realizada durante a cirurgia"
                   fill
-                  sizes="16vw"
-                  className="object-cover"
+                  sizes="58vw"
+                  className="object-cover object-[center_38%]"
                 />
               </div>
             </div>
