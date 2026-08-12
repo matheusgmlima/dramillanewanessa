@@ -39,7 +39,7 @@ export default function Hero() {
         {/* ---------- Coluna de texto ---------- */}
         <div className="z-10 flex flex-col justify-center lg:col-span-6 lg:pb-24 xl:col-span-5">
           <p className="t-label text-vinho-700">
-            Fisioterapia Dermatofuncional
+            {site.profissao} Dermatofuncional
             <span className="mx-3 text-tinta-400">·</span>
             {site.cidade}, {site.estado}
           </p>
@@ -59,10 +59,10 @@ export default function Hero() {
           </h1>
 
           <p className="t-corpo-grande mt-9 max-w-[440px] text-tinta-700">
-            Cuido da recuperação de quem passou por cirurgia plástica, convive
-            com lipedema ou acabou de ser mãe. São{" "}
+            Acompanho a recuperação de quem passou por cirurgia plástica,
+            convive com lipedema ou acabou de ser mãe. São{" "}
             <span className="text-vinho-700">{site.experiencia.anos} anos</span>{" "}
-            acompanhando cada fase de perto, do centro cirúrgico à alta.
+            de prática clínica dentro do centro cirúrgico e no consultório.
           </p>
 
           <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">

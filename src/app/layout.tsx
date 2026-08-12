@@ -25,11 +25,11 @@ const jost = Jost({
 export const metadata: Metadata = {
   metadataBase: new URL("https://millanewanessa.com.br"),
   title: {
-    default: "Dra. Millane Wanessa | Fisioterapia Dermatofuncional em Recife",
+    default: "Dra. Millane Wanessa | Fisioterapeuta Dermatofuncional em Recife",
     template: "%s · Dra. Millane Wanessa",
   },
   description:
-    "Fisioterapia dermatofuncional em Recife: acompanhamento intraoperatório, pós-operatório de cirurgia plástica, lipedema e pós-parto. Consultório no Pina. Agende sua consulta.",
+    "Fisioterapeuta dermatofuncional em Recife: acompanhamento intraoperatório, pós-operatório de cirurgia plástica, lipedema e pós-parto. Consultório no Pina. Agende sua consulta.",
   keywords: [
     "fisioterapia dermatofuncional Recife",
     "pós-operatório cirurgia plástica Recife",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: "Dra. Millane Wanessa",
-    title: "Dra. Millane Wanessa | Fisioterapia Dermatofuncional em Recife",
+    title: "Dra. Millane Wanessa | Fisioterapeuta Dermatofuncional em Recife",
     description:
       "Do centro cirúrgico até a alta: intraoperatório, pós-operatório de cirurgia plástica, lipedema e pós-parto. Consultório no Pina, Recife.",
   },

@@ -25,7 +25,7 @@ const atendimentos = [
     titulo: "Intraoperatório",
     resumo: "Eu entro no bloco. O cuidado começa antes de você acordar.",
     texto:
-      "Acompanho a cirurgia dentro do centro cirúrgico e realizo as intervenções necessárias durante o próprio procedimento, junto à equipe. Estar ali muda a condução do pós inteiro: eu sei exatamente o que foi feito no seu tecido, em vez de deduzir depois pelo relatório.",
+      "Acompanho a cirurgia dentro do centro cirúrgico e realizo as intervenções indicadas durante o próprio procedimento, integrada à equipe. Estar presente ali muda toda a condução do pós-operatório: eu sei exatamente o que foi feito no seu tecido, em vez de deduzir depois pelo relatório cirúrgico.",
     destaque: true,
     foto: "/fotos/intra-1.jpg",
     contexto: "intraoperatorio" as const,
@@ -35,9 +35,9 @@ const atendimentos = [
     numero: "02",
     titulo: "Pós-operatório de cirurgia plástica",
     resumo:
-      "A cirurgia entrega uma parte do resultado. A outra parte acontece depois, e é aí que eu entro.",
+      "A cirurgia entrega uma parte do resultado. A outra parte se constrói depois, e é aí que eu entro.",
     texto:
-      "Acompanho a recuperação desde os primeiros dias: drenagem, controle de fibrose e seroma, cuidado com a cicatriz, retorno gradual às atividades. Cada corpo responde de um jeito, então o protocolo se ajusta à sua evolução, e não o contrário.",
+      "Acompanho a recuperação desde os primeiros dias: drenagem linfática, manejo de fibrose e seroma, cuidado com a cicatriz e retorno gradual às atividades. Cada corpo responde de um jeito, então a conduta se ajusta à sua evolução, e não o contrário.",
     destaque: false,
     foto: "/fotos/M_294.jpg",
     contexto: "consulta" as const,
@@ -49,7 +49,7 @@ const atendimentos = [
     resumo:
       "Não é gordura comum, não é falta de esforço, e não some com dieta.",
     texto:
-      "O lipedema é um acúmulo anormal de gordura nas pernas e braços que causa dor, inchaço e sensação de peso, e não responde a dieta nem a exercício. O tratamento conservador reduz sintoma e devolve qualidade de vida, mas depende de diagnóstico correto e de conduta contínua.",
+      "O lipedema é um acúmulo desproporcional de tecido adiposo, em geral nas pernas e nos braços, que causa dor, sensação de peso e facilidade para hematomas. Diferente da gordura comum, não regride apenas com dieta e exercício. O tratamento conservador busca controlar os sintomas e preservar a mobilidade, e depende de diagnóstico correto e acompanhamento contínuo.",
     destaque: false,
     foto: "/fotos/M_23.jpg",
     contexto: "lipedema" as const,
@@ -60,7 +60,7 @@ const atendimentos = [
     titulo: "Pós-parto",
     resumo: "O corpo que gerou também precisa de cuidado para se reorganizar.",
     texto:
-      "Recuperação de cesárea, diástase abdominal, retenção de líquido e retomada da força no seu tempo. Sem pressa por resultado estético e sem ignorar o que o seu corpo está pedindo naquele momento.",
+      "Recuperação de cesárea, diástase abdominal, retenção de líquido e retomada gradual da força. Respeito o tempo do seu puerpério: sem pressa por resultado estético e sem ignorar o que o seu corpo está pedindo naquele momento.",
     destaque: false,
     foto: "/fotos/M_308.jpg",
     contexto: "posparto" as const,
@@ -162,7 +162,7 @@ export default function Atendimento() {
                 src="/video/intraoperatorio.mp4"
                 poster="/video/intraoperatorio-poster.jpg"
                 descricao="Dra. Millane Wanessa explica como funciona o acompanhamento intraoperatório dentro do centro cirúrgico"
-                legenda="30 segundos · com legendas"
+                legenda="30 segundos · legendado"
               />
             </div>
 
@@ -174,10 +174,10 @@ export default function Atendimento() {
                 <span className="t-italico">tecido</span>.”
               </blockquote>
 
-              <p className="mt-8 max-w-[44ch] text-tinta-700">
-                Nesses trinta segundos ela mostra o que acontece dentro do
-                centro cirúrgico e por que estar ali muda a recuperação. Vale
-                mais do que qualquer explicação escrita.
+              <p className="mt-8 max-w-[46ch] text-tinta-700">
+                Em trinta segundos eu mostro o que acontece dentro do centro
+                cirúrgico e por que a minha presença ali muda a condução da sua
+                recuperação.
               </p>
             </div>
 

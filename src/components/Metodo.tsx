@@ -14,17 +14,17 @@ const etapas = [
   {
     titulo: "Avaliação antes de qualquer conduta",
     texto:
-      "Entender o procedimento realizado, o tempo de pós, o que já foi feito e como seu corpo está respondendo. Sem isso, protocolo é chute.",
+      "Entender o procedimento realizado, o tempo de pós-operatório, o que já foi feito e como o seu corpo está respondendo. Sem avaliação, protocolo vira suposição.",
   },
   {
     titulo: "Condução, não sessão avulsa",
     texto:
-      "A recuperação tem fases. O que ajuda na primeira semana pode atrapalhar na quarta, e o plano acompanha essa mudança.",
+      "A recuperação tem fases. O que ajuda na primeira semana pode atrapalhar na quarta, e a conduta acompanha essa mudança.",
   },
   {
-    titulo: "Você sabe o que está acontecendo",
+    titulo: "Você entende cada etapa",
     texto:
-      "Explico o porquê de cada etapa e o que esperar. Paciente que entende o processo adere melhor e se assusta menos com o caminho.",
+      "Explico o motivo de cada intervenção e o que esperar do período. Quem compreende o próprio processo adere melhor ao tratamento e se assusta menos com o caminho.",
   },
 ];
 
@@ -48,19 +48,23 @@ export default function Metodo() {
               />
             </div>
 
-            {/* Credencial como nota de rodapé da foto, não como banner de stats */}
+            {/* Credencial como nota de rodapé da foto, não como banner de stats.
+                A titulação por extenso aqui não é enfeite: o Código de Ética
+                exige que ela apareça na divulgação profissional. */}
             <div className="regua mt-6 flex flex-wrap gap-x-10 gap-y-4 pt-6">
               <div>
                 <p className="t-titulo text-vinho-700">
                   {site.experiencia.anos}+
                 </p>
                 <p className="t-label mt-1 text-tinta-500">
-                  anos de clínica
+                  anos de prática clínica
                 </p>
               </div>
               <div>
                 <p className="t-titulo text-vinho-700">178254-F</p>
-                <p className="t-label mt-1 text-tinta-500">CREFITO</p>
+                <p className="t-label mt-1 text-tinta-500">
+                  {site.profissao} · CREFITO
+                </p>
               </div>
             </div>
           </Revelar>
@@ -75,9 +79,9 @@ export default function Metodo() {
               </h2>
 
               <p className="t-corpo-grande mt-9 max-w-[46ch] text-tinta-700">
-                Já acompanhei centenas de mulheres no pós-operatório, e a coisa
-                mais comum que escuto é: “ninguém me explicou que ia ser assim”.
-                Meu trabalho começa justamente aí.
+                Ao longo desses anos acompanhando mulheres no pós-operatório, a
+                frase que mais escuto é: “ninguém me explicou que ia ser assim”.
+                O meu trabalho começa justamente aí.
               </p>
             </Revelar>
 

@@ -16,9 +16,9 @@ export default function Rodape() {
               Vamos cuidar da sua{" "}
               <span className="t-italico">recuperação</span>?
             </h2>
-            <p className="t-corpo-grande mt-8 max-w-[42ch] text-creme-100/75">
-              Me chama no WhatsApp contando o que você fez ou o que está
-              sentindo. Eu respondo pessoalmente.
+            <p className="t-corpo-grande mt-8 max-w-[44ch] text-creme-100/75">
+              Me escreva no WhatsApp contando qual procedimento você fez ou o
+              que está sentindo. Quem responde sou eu.
             </p>
           </div>
 
@@ -41,8 +41,10 @@ export default function Rodape() {
               height={683}
               className="h-14 w-auto"
             />
+            {/* Titulação por extenso + número de inscrição: exigência do
+                Código de Ética da Fisioterapia para divulgação profissional. */}
             <p className="t-label mt-6 text-creme-100/55">
-              {site.titulo} · {site.crefito}
+              {site.profissao} Dermatofuncional · {site.crefito}
             </p>
             <p className="t-label mt-2 max-w-[34ch] text-creme-100/55">
               {site.endereco.predio}, {site.endereco.logradouro},{" "}

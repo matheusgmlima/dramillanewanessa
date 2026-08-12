@@ -22,7 +22,7 @@ export default function Consultorio() {
             <p className="t-label text-vinho-700">Onde eu atendo</p>
 
             <h2 className="t-display mt-6 max-w-[12ch]">
-              Consultório em <span className="t-italico">Recife</span>.
+              Consultório no <span className="t-italico">Pina</span>.
             </h2>
 
             <dl className="mt-12 flex flex-col gap-y-8">
@@ -61,7 +61,7 @@ export default function Consultorio() {
                 <dd className="mt-2 text-[1.0625rem] text-tinta-900">
                   {site.whatsapp.exibicao}
                   <span className="mt-1 block text-tinta-500">
-                    Pelo WhatsApp. Eu respondo pessoalmente.
+                    Pelo WhatsApp, com retorno pessoal meu.
                   </span>
                 </dd>
               </div>

@@ -14,7 +14,14 @@ import { site } from "@/lib/site";
  *
  * Vive dentro do território vinho do Mentory, e não numa seção neutra: quem
  * lê isto é fisioterapeuta avaliando o curso, não paciente procurando
- * consulta. Quando houver relatos de pacientes, eles entram em outro lugar.
+ * consulta.
+ *
+ * ATENÇÃO ao adicionar relatos aqui: o Código de Ética da Fisioterapia
+ * (Res. COFFITO 424/2013) veda divulgar, para fins de autopromoção,
+ * declaração ou carta de agradecimento emitida por PACIENTE em razão de
+ * serviço profissional prestado. Estes três são de ALUNAS de um curso, uma
+ * relação educacional, e por isso não caem nessa vedação. Depoimento de
+ * paciente não deve entrar no site.
  */
 
 type Relato = {

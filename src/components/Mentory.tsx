@@ -20,17 +20,17 @@ const pilares = [
   {
     titulo: "Vivência em centro cirúrgico",
     texto:
-      "Acompanhar a cirurgia por dentro muda como você conduz o pós. Você vê o que foi feito no tecido, não imagina.",
+      "Acompanhar a cirurgia por dentro muda a forma como você conduz o pós-operatório. Você observa o que foi feito no tecido, em vez de imaginar.",
   },
   {
     titulo: "Intra e pós-operatório na prática",
     texto:
-      "Conduta real em paciente real, com supervisão. Não é aula gravada sobre o que você faria numa situação hipotética.",
+      "Conduta em paciente real, sob supervisão. Não é aula gravada sobre o que você faria diante de uma situação hipotética.",
   },
   {
     titulo: "Três meses de mentoria",
     texto:
-      "O curso acaba e a insegurança volta na primeira paciente difícil. Por isso o acompanhamento continua depois, que é quando as dúvidas de verdade aparecem.",
+      "O curso termina e a insegurança costuma voltar na primeira paciente difícil. Por isso o acompanhamento continua depois, que é quando as dúvidas reais aparecem.",
   },
 ];
 
@@ -59,17 +59,17 @@ export default function Mentory() {
             />
           </div>
 
-          <p className="t-display mt-12 max-w-[19ch] text-creme-100">
-            De insegura a{" "}
-            <span className="t-italico">referência clínica</span> em cirurgia
+          <p className="t-display mt-12 max-w-[20ch] text-creme-100">
+            Da insegurança à{" "}
+            <span className="t-italico">segurança clínica</span> em cirurgia
             plástica.
           </p>
 
           <p className="t-corpo-grande mt-9 max-w-[54ch] text-creme-100/80">
-            A graduação não ensina pós-operatório de cirurgia plástica. Você sai
-            sabendo drenagem e descobre na primeira paciente que isso é uma
-            fração do problema. O Mentory Fisio existe para preencher
-            exatamente esse buraco.
+            A graduação não prepara ninguém para o pós-operatório de cirurgia
+            plástica. Você sai sabendo drenagem e descobre na primeira paciente
+            que isso é uma fração do problema. O Mentory Fisio existe para
+            preencher exatamente essa lacuna.
           </p>
         </Revelar>
 
@@ -109,8 +109,8 @@ export default function Mentory() {
 
               <p className="mt-6 max-w-[48ch] text-creme-100/75">
                 As vagas são limitadas pela própria natureza da vivência, já que
-                centro cirúrgico não comporta turma grande. Me chama no WhatsApp
-                para saber as datas exatas, o investimento e as condições de
+                centro cirúrgico não comporta turma grande. Me escreva no
+                WhatsApp para saber as datas, o investimento e as condições de
                 pagamento.
               </p>
             </div>

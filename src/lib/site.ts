@@ -8,6 +8,13 @@ export const site = {
   nome: "Millane Wanessa",
   nomeCompleto: "Dra. Millane Wanessa",
   titulo: "Fisioterapia Dermatofuncional",
+  /**
+   * O Código de Ética da Fisioterapia (Res. COFFITO 424/2013) exige que a
+   * titulação profissional apareça por extenso na divulgação, e proíbe
+   * substituí-la por expressão genérica. "Fisioterapia Dermatofuncional"
+   * nomeia a especialidade, não a titulação — por isso os dois campos.
+   */
+  profissao: "Fisioterapeuta",
   crefito: "CREFITO 178254-F",
   cidade: "Recife",
   estado: "PE",
