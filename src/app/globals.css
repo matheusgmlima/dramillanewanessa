@@ -47,9 +47,12 @@
   --font-display: var(--font-bodoni), "Bodoni Moda", Didot, serif;
   --font-sans: var(--font-jost), "Jost", system-ui, sans-serif;
 
-  /* --- Ritmo vertical (density 4 — standard/arejado) --- */
-  --spacing-secao: 7.5rem;
-  --spacing-secao-lg: 11rem;
+  /* --- Ritmo vertical (density 4 — standard/arejado) ---
+     Escala com a largura da tela. Respiro que parece generoso num monitor
+     vira um vão morto de rolagem num celular: 120px fixos ocupavam quase
+     um terço da tela de um iPhone SE. */
+  --spacing-secao: clamp(4rem, 9vw, 7.5rem);
+  --spacing-secao-lg: clamp(5rem, 13vw, 11rem);
 
   /* --- Easing: nada de bounce. Editorial é sóbrio. --- */
   --ease-marca: cubic-bezier(0.22, 1, 0.36, 1);

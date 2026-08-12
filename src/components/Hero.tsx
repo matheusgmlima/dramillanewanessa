@@ -84,15 +84,22 @@ export default function Hero() {
               <span className="t-label block text-tinta-400">
                 Para fisioterapeutas
               </span>
+
+              {/* "Turma 8" não pode quebrar entre a palavra e o número, e o
+                  selo de inscrição ganha linha própria: no celular os três
+                  pedaços na mesma linha viravam uma sopa de texto. */}
               <span className="font-display mt-1.5 block text-[1.3rem] leading-tight">
-                Mentory Fisio
-                <span className="t-italico"> Turma {site.mentory.turma}</span>
-                {site.mentory.inscricoesAbertas && (
-                  <span className="t-label ml-3 align-middle text-vinho-700">
-                    inscrições abertas
-                  </span>
-                )}
+                Mentory Fisio{" "}
+                <span className="t-italico whitespace-nowrap">
+                  Turma {site.mentory.turma}
+                </span>
               </span>
+
+              {site.mentory.inscricoesAbertas && (
+                <span className="t-label mt-2 block text-vinho-700">
+                  Inscrições abertas
+                </span>
+              )}
             </span>
             <span
               aria-hidden="true"

@@ -181,13 +181,20 @@ export default function Atendimento() {
               </p>
             </div>
 
-            <div className="lg:col-span-2 lg:col-start-11">
+            {/* Some no celular de propósito.
+                Empilhada, esta foto caía logo antes do retrato que abre a
+                seção seguinte, e duas imagens coladas sem texto entre elas
+                travam a leitura. No desktop ela ocupa a coluna lateral e
+                fecha a composição; no celular o vídeo já mostra o bloco
+                cirúrgico, então ela não acrescenta o bastante para justificar
+                o atropelo visual. */}
+            <div className="hidden lg:col-span-2 lg:col-start-11 lg:block">
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
                   src="/fotos/intra-2.jpg"
                   alt="Intervenção sendo realizada durante a cirurgia"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 16vw"
+                  sizes="16vw"
                   className="object-cover"
                 />
               </div>
