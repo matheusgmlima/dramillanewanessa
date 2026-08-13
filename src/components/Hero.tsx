@@ -66,7 +66,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Botao href={linkWhatsapp("consulta")} externo>
+            <Botao href={linkWhatsapp("geral")} externo>
               Agendar consulta
             </Botao>
           </div>

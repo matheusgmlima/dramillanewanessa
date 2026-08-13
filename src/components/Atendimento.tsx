@@ -40,7 +40,7 @@ const atendimentos = [
       "Acompanho a recuperação desde os primeiros dias: drenagem linfática, manejo de fibrose e seroma, cuidado com a cicatriz e retorno gradual às atividades. Cada corpo responde de um jeito, então a conduta se ajusta à sua evolução, e não o contrário.",
     destaque: false,
     foto: "/fotos/M_294.jpg",
-    contexto: "consulta" as const,
+    contexto: "posoperatorio" as const,
     cta: "Agendar pós-operatório",
   },
   {

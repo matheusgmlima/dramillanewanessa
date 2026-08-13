@@ -67,32 +67,51 @@ export const site = {
 } as const;
 
 type MensagemContexto =
-  | "consulta"
+  | "geral"
+  | "posoperatorio"
   | "intraoperatorio"
   | "lipedema"
   | "posparto"
   | "mentory"
   | "turma";
 
+/**
+ * Uma mensagem por assunto.
+ *
+ * Duas coisas guiaram a redação:
+ *
+ * 1. Curta. A pessoa vai enviar isto do próprio celular e precisa conseguir
+ *    completar com o caso dela sem apagar meio parágrafo antes. Mensagem
+ *    pré-preenchida longa costuma ser deletada inteira, e aí a Dra. perde a
+ *    informação de origem.
+ * 2. "Vim pelo site" em todas. É o que separa um contato vindo daqui de um
+ *    contato vindo do Instagram ou de indicação, sem precisar perguntar.
+ *
+ * `geral` existe porque os botões de topo, rodapé e consultório não sabem
+ * qual é o assunto — quem clica ali pode querer qualquer um dos quatro
+ * atendimentos. Antes todos usavam a mensagem de pós-operatório, então
+ * alguém com lipedema anunciava um pós-operatório que não fez.
+ */
 const mensagens: Record<MensagemContexto, string> = {
-  consulta:
-    "Olá, Dra. Millane! Vim pelo site e gostaria de agendar uma consulta de pós-operatório.",
+  geral:
+    "Olá, Dra. Millane! Vim pelo site e gostaria de agendar uma consulta.",
+  posoperatorio:
+    "Olá, Dra. Millane! Vim pelo site e quero agendar meu acompanhamento de pós-operatório.",
   intraoperatorio:
-    "Olá, Dra. Millane! Vim pelo site e gostaria de saber sobre o acompanhamento intraoperatório.",
+    "Olá, Dra. Millane! Vim pelo site e quero saber como funciona o acompanhamento intraoperatório.",
   lipedema:
-    "Olá, Dra. Millane! Vim pelo site e gostaria de saber mais sobre o tratamento de lipedema.",
+    "Olá, Dra. Millane! Vim pelo site e quero saber sobre o tratamento de lipedema.",
   posparto:
-    "Olá, Dra. Millane! Vim pelo site e gostaria de saber mais sobre o acompanhamento pós-parto.",
+    "Olá, Dra. Millane! Vim pelo site e quero saber sobre o acompanhamento no pós-parto.",
   mentory:
-    "Olá! Sou fisioterapeuta e vim pelo site. Quero saber mais sobre o Mentory Fisio.",
-  turma:
-    "Olá! Sou fisioterapeuta e vim pelo site. Quero me inscrever na Turma 8 do Mentory Fisio.",
+    "Olá! Sou fisioterapeuta, vim pelo site e quero saber mais sobre o Mentory Fisio.",
+  turma: `Olá! Sou fisioterapeuta, vim pelo site e quero me inscrever na Turma ${site.mentory.turma} do Mentory Fisio.`,
 };
 
 /**
  * Monta o link do WhatsApp já com a mensagem certa para o contexto do clique.
- * Assim a Dra. sabe de onde a pessoa veio sem precisar perguntar.
+ * Assim a Dra. sabe do que a pessoa quer falar antes de responder.
  */
-export function linkWhatsapp(contexto: MensagemContexto = "consulta"): string {
+export function linkWhatsapp(contexto: MensagemContexto = "geral"): string {
   return `https://wa.me/${site.whatsapp.numero}?text=${encodeURIComponent(mensagens[contexto])}`;
 }

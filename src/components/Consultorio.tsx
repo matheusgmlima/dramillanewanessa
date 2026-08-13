@@ -68,7 +68,7 @@ export default function Consultorio() {
             </dl>
 
             <div className="mt-12">
-              <Botao href={linkWhatsapp("consulta")} externo>
+              <Botao href={linkWhatsapp("geral")} externo>
                 Agendar consulta
               </Botao>
             </div>

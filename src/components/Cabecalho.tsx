@@ -79,7 +79,7 @@ export default function Cabecalho() {
             </a>
           ))}
           <a
-            href={linkWhatsapp("consulta")}
+            href={linkWhatsapp("geral")}
             target="_blank"
             rel="noopener noreferrer"
             className="t-label cursor-pointer border border-vinho-700 bg-vinho-700 px-6 py-3 text-creme-100 transition-colors duration-300 hover:bg-vinho-800"
@@ -129,7 +129,7 @@ export default function Cabecalho() {
             </a>
           ))}
           <a
-            href={linkWhatsapp("consulta")}
+            href={linkWhatsapp("geral")}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setAberto(false)}

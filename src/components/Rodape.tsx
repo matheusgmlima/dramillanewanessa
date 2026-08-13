@@ -23,7 +23,7 @@ export default function Rodape() {
           </div>
 
           <div className="flex items-start lg:col-span-4 lg:col-start-9 lg:justify-end">
-            <Botao href={linkWhatsapp("consulta")} externo variante="claro">
+            <Botao href={linkWhatsapp("geral")} externo variante="claro">
               Chamar no WhatsApp
             </Botao>
           </div>
@@ -54,7 +54,7 @@ export default function Rodape() {
 
           <div className="flex flex-col gap-y-3 lg:items-end">
             <a
-              href={linkWhatsapp("consulta")}
+              href={linkWhatsapp("geral")}
               target="_blank"
               rel="noopener noreferrer"
               className="link-regua t-label w-fit cursor-pointer text-creme-100/80"
