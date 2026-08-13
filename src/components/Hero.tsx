@@ -36,8 +36,18 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-y-10 px-6 sm:px-10 lg:grid-cols-12 lg:gap-x-8 lg:px-14">
-        {/* ---------- Coluna de texto ---------- */}
-        <div className="z-10 flex flex-col justify-center lg:col-span-6 lg:pb-24 xl:col-span-5">
+        {/* ---------- Coluna de texto ----------
+            A figura dela é o elemento mais alto do hero, e o texto não chega
+            perto dessa altura. Com justify-center a sobra ia toda para baixo
+            da faixa do Mentory e virava um buraco de 200px.
+
+            justify-between resolve usando a sobra em vez de escondê-la: o
+            bloco de apresentação ancora no topo, a faixa desce até a base da
+            figura, e as duas colunas passam a terminar na mesma linha. A
+            distância entre os dois grupos vira separação proposital entre o
+            que é para paciente e o que é para fisioterapeuta. */}
+        <div className="z-10 flex flex-col justify-between lg:col-span-6 lg:gap-y-12 lg:pb-2 xl:col-span-5">
+          <div className="flex flex-col">
           <p className="t-label text-vinho-700">
             {site.profissao} Dermatofuncional
             <span className="mx-3 text-tinta-400">·</span>
@@ -70,6 +80,7 @@ export default function Hero() {
               Agendar consulta
             </Botao>
           </div>
+          </div>
 
           {/* Porta secundária para o outro público.
               Antes isto era uma frase solta que quebrava em duas linhas e
@@ -78,7 +89,7 @@ export default function Hero() {
               aberta) em vez de um convite vago. */}
           <a
             href="#mentory-fisio"
-            className="group regua mt-14 flex items-center justify-between gap-6 py-5 text-tinta-700 transition-colors duration-300 hover:text-vinho-700"
+            className="group regua mt-14 flex items-center justify-between gap-6 py-5 text-tinta-700 transition-colors duration-300 hover:text-vinho-700 lg:mt-0"
           >
             <span>
               <span className="t-label block text-tinta-400">
