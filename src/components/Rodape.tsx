@@ -80,10 +80,26 @@ export default function Rodape() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-[1440px] px-6 pb-10 sm:px-10 lg:px-14">
+        {/* Crédito de autoria em texto, não em logotipo.
+            Uma marca própria aqui criaria dois sistemas visuais competindo
+            com o didone bordô dela. Assinatura de autor se lê como nota de
+            rodapé: quem procura encontra, quem não procura nem registra. */}
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-y-3 px-6 pb-10 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-14">
           {/* /35 dava 2.81:1 — abaixo do AA mesmo para texto de rodapé. */}
           <p className="t-label text-creme-100/55">
             © {ano} {site.nomeCompleto}. Todos os direitos reservados.
+          </p>
+
+          <p className="t-label text-creme-100/55">
+            Site por{" "}
+            <a
+              href={site.autor.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-regua cursor-pointer text-creme-100/80 transition-colors duration-300 hover:text-creme-100"
+            >
+              {site.autor.nome} · {site.autor.instagram}
+            </a>
           </p>
         </div>
       </div>

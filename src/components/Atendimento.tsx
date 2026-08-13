@@ -156,7 +156,12 @@ export default function Atendimento() {
             é fala dela no próprio vídeo: copy que só existe aqui, impossível
             de confundir com texto de template. */}
         <Revelar className="mt-28">
-          <div className="regua grid grid-cols-1 items-start gap-x-12 gap-y-10 pt-12 lg:grid-cols-12">
+          {/* items-center centra o vídeo na altura da coluna vizinha.
+              O formato 9:16 tem altura fixa pela proporção, então não dá para
+              esticá-lo até casar com o texto: o que dá é distribuir a sobra
+              em cima e embaixo, e dimensionar a coluna direita para que
+              texto + foto cheguem perto da mesma altura. */}
+          <div className="regua grid grid-cols-1 items-center gap-x-12 gap-y-10 pt-12 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <Video
                 src="/video/intraoperatorio.mp4"
@@ -171,7 +176,11 @@ export default function Atendimento() {
                 com uns 400px de vazio. Empilhar texto e foto numa coluna só
                 aproveita a altura que o vídeo impõe, em vez de brigar com
                 ela. */}
-            <div className="flex flex-col gap-y-10 lg:col-span-7 lg:col-start-6">
+            {/* Coluna em 6/12, não 7: com ela mais estreita, texto e foto
+                somam quase exatamente a altura do vídeo, e as bordas do
+                parágrafo passam a coincidir com as da foto em vez de parar
+                no meio dela. */}
+            <div className="flex flex-col gap-y-10 lg:col-span-6 lg:col-start-6">
               <div>
                 <p className="t-label text-vinho-700">Por dentro do bloco</p>
 
@@ -180,7 +189,7 @@ export default function Atendimento() {
                   <span className="t-italico">tecido</span>.”
                 </blockquote>
 
-                <p className="mt-8 max-w-[46ch] text-tinta-700">
+                <p className="mt-8 text-tinta-700">
                   Em trinta segundos eu mostro o que acontece dentro do centro
                   cirúrgico e por que a minha presença ali muda a condução da
                   sua recuperação.
@@ -195,7 +204,7 @@ export default function Atendimento() {
                   src="/fotos/intra-2.jpg"
                   alt="Intervenção sendo realizada durante a cirurgia"
                   fill
-                  sizes="58vw"
+                  sizes="48vw"
                   className="object-cover object-[center_38%]"
                 />
               </div>

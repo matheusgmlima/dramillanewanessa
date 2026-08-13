@@ -58,6 +58,12 @@ export const site = {
     periodo: "setembro",
     inscricoesAbertas: true,
   },
+
+  autor: {
+    nome: "Matheus Lima",
+    instagram: "@matheusgmlima",
+    url: "https://www.instagram.com/matheusgmlima/",
+  },
 } as const;
 
 type MensagemContexto =
