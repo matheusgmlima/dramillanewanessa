@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import Revelar from "./ui/Revelar";
 import Botao from "./ui/Botao";
 import Depoimentos from "./Depoimentos";
+import { etapas } from "@/lib/jornada";
 import { site, linkWhatsapp } from "@/lib/site";
 
 /**
@@ -16,6 +18,18 @@ import { site, linkWhatsapp } from "@/lib/site";
  * É o que separa "uma seção sobre o curso" de "o curso tem casa própria".
  */
 
+/**
+ * Quatro imagens da jornada, escolhidas para cobrir momentos distintos:
+ * o material, a demonstração, o bloco cirúrgico e a conclusão. Juntas
+ * resumem o percurso sem precisar de legenda.
+ */
+const previa = [
+  "/jornada/kit.jpg",
+  "/jornada/tecnica.jpg",
+  "/jornada/bloco-poster.jpg",
+  "/jornada/certificado.jpg",
+];
+
 const pilares = [
   {
     titulo: "Vivência em centro cirúrgico",
@@ -23,14 +37,16 @@ const pilares = [
       "Acompanhar a cirurgia por dentro muda a forma como você conduz o pós-operatório. Você observa o que foi feito no tecido, em vez de imaginar.",
   },
   {
-    titulo: "Intra e pós-operatório na prática",
+    // O certificado do curso registra "pré, intra e pós-operatório". O site
+    // só falava de intra e pós, deixando de fora uma parte do que ela ensina.
+    titulo: "Pré, intra e pós na prática",
     texto:
       "Conduta em paciente real, sob supervisão. Não é aula gravada sobre o que você faria diante de uma situação hipotética.",
   },
   {
-    titulo: "Três meses de mentoria",
+    titulo: "Acompanhamento depois do curso",
     texto:
-      "O curso termina e a insegurança costuma voltar na primeira paciente difícil. Por isso o acompanhamento continua depois, que é quando as dúvidas reais aparecem.",
+      "O presencial termina e a insegurança costuma voltar na primeira paciente difícil. Por isso o suporte segue por três meses, que é quando as dúvidas reais aparecem.",
   },
 ];
 
@@ -90,11 +106,21 @@ export default function Mentory() {
             que isso é uma fração do problema.
           </p>
 
+          {/* "Três meses de imersão clínica", como estava antes, dava a
+              entender três meses de curso. São coisas distintas: 20 horas de
+              conteúdo presencial em cinco dias, e depois três meses de
+              acompanhamento. Separar as duas evita que a pessoa chegue ao
+              WhatsApp com a expectativa errada sobre o formato. */}
           <p className="t-corpo-grande mt-6 max-w-[54ch] text-creme-100">
             Aqui você não apenas assiste a aulas. Você vive a rotina de quem
             atende pós-operatório de cirurgia plástica, acompanhando casos
             reais em consultório e centro cirúrgico, com supervisão e
-            direcionamento durante três meses de imersão clínica.
+            direcionamento.
+          </p>
+
+          <p className="t-corpo-grande mt-6 max-w-[54ch] text-creme-100/80">
+            São 20 horas de conteúdo presencial, em cinco dias, e mais três
+            meses de acompanhamento depois que a turma termina.
           </p>
         </Revelar>
 
@@ -112,6 +138,65 @@ export default function Mentory() {
             </Revelar>
           ))}
         </div>
+
+        {/* Porta para a página da jornada.
+            Fica logo depois dos pilares porque é aqui que a pessoa acabou de
+            entender o conceito e passa a querer ver como ele acontece na
+            prática. Antes disso o convite não faria sentido; depois dos
+            depoimentos, competiria com o CTA de inscrição. */}
+        {/* Antes isto era uma linha de texto com régua, idêntica aos demais
+            links da seção, e passava despercebida.
+            Em vez de virar botão sólido — que disputaria atenção com o
+            "Quero minha vaga", o CTA que realmente converte —, ganhou moldura
+            e uma prévia do conteúdo. As miniaturas fazem o trabalho que
+            nenhum botão faz: mostram que existe material de verdade do outro
+            lado, em vez de só prometer. */}
+        <Revelar className="mt-20">
+          <Link
+            href="/mentory-fisio"
+            className="group flex flex-col gap-8 border border-creme-100/25 p-7 transition-colors duration-500 hover:border-creme-100/60 hover:bg-creme-100/[0.04] lg:flex-row lg:items-center lg:justify-between lg:p-9"
+          >
+            <span className="lg:max-w-[26ch]">
+              <span className="t-label block text-creme-100/60">
+                As {etapas.length} etapas do curso
+              </span>
+              <span className="font-display mt-3 block text-[1.6rem] leading-tight text-creme-100 lg:text-[1.9rem]">
+                Veja a jornada completa,{" "}
+                <span className="t-italico">etapa por etapa</span>
+              </span>
+              <span className="t-label mt-5 inline-flex items-center gap-2.5 text-creme-100">
+                Entrar na jornada
+                <span
+                  aria-hidden="true"
+                  className="text-base transition-transform duration-300 group-hover:translate-x-1.5"
+                >
+                  →
+                </span>
+              </span>
+            </span>
+
+            {/* Prévia do que existe na outra página */}
+            <span
+              aria-hidden="true"
+              className="grid shrink-0 grid-cols-4 gap-3 lg:w-[46%]"
+            >
+              {previa.map((src) => (
+                <span
+                  key={src}
+                  className="relative block aspect-[3/4] overflow-hidden"
+                >
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    sizes="(max-width: 1024px) 22vw, 11vw"
+                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+                  />
+                </span>
+              ))}
+            </span>
+          </Link>
+        </Revelar>
 
         {/* Relatos das alunas vêm antes do CTA: prova social imediatamente
             antes do pedido de ação converte melhor do que depois dele. */}

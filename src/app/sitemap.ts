@@ -2,16 +2,27 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
 /**
- * Site de página única. O sitemap existe mesmo assim porque é por ele que o
- * Google Search Console confirma a indexação e acompanha a data de alteração.
+ * O sitemap é por onde o Google Search Console confirma a indexação e
+ * acompanha a data de alteração de cada página.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
+  const agora = new Date();
+
   return [
     {
       url: site.url,
-      lastModified: new Date(),
+      lastModified: agora,
       changeFrequency: "monthly",
       priority: 1,
+    },
+    {
+      // A jornada do Mentory. Prioridade menor que a home por ser conteúdo de
+      // aprofundamento, mas alta o bastante para ser rastreada: é a página que
+      // pode ranquear para quem procura formação em pós-operatório.
+      url: `${site.url}/mentory-fisio`,
+      lastModified: agora,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
   ];
 }

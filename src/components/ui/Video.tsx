@@ -9,6 +9,10 @@ type Props = {
   /** Descreve o conteúdo para quem não vai assistir (busca, leitor de tela). */
   descricao: string;
   legenda?: string;
+  /** 9/16 para vídeo vertical; 3/4 acompanha as fotos da jornada. */
+  proporcao?: "9/16" | "3/4";
+  /** Moldura creme, para o vídeo casar com as fotos emolduradas. */
+  emoldurado?: boolean;
 };
 
 /**
@@ -22,13 +26,30 @@ type Props = {
  * Sem autoplay: vídeo que começa sozinho é hostil, e este tem áudio de fala.
  * As legendas estão queimadas na imagem, então funciona no mudo.
  */
-export default function Video({ src, poster, descricao, legenda }: Props) {
+export default function Video({
+  src,
+  poster,
+  descricao,
+  legenda,
+  proporcao = "9/16",
+  emoldurado = false,
+}: Props) {
   const [ativo, setAtivo] = useState(false);
   const ref = useRef<HTMLVideoElement>(null);
 
+  const classeProporcao =
+    proporcao === "3/4" ? "aspect-[3/4]" : "aspect-[9/16]";
+
   return (
     <figure className="flex flex-col">
-      <div className="relative aspect-[9/16] overflow-hidden bg-vinho-950">
+      <div
+        className={
+          emoldurado ? "border border-creme-100/25 p-2" : undefined
+        }
+      >
+      <div
+        className={`relative ${classeProporcao} overflow-hidden bg-vinho-950`}
+      >
         {ativo ? (
           <video
             ref={ref}
@@ -71,6 +92,7 @@ export default function Video({ src, poster, descricao, legenda }: Props) {
             </span>
           </button>
         )}
+      </div>
       </div>
 
       {/* Cor herdada do contexto: o mesmo player serve o fundo creme e o
