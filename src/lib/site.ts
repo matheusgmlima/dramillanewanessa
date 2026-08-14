@@ -9,6 +9,11 @@ export const site = {
   nomeCompleto: "Dra. Millane Wanessa",
   titulo: "Fisioterapia Dermatofuncional",
   /**
+   * Domínio de produção. Usado no metadataBase, no sitemap e no JSON-LD.
+   * Trocar aqui basta para os três acompanharem.
+   */
+  url: "https://millanewanessa.com.br",
+  /**
    * O Código de Ética da Fisioterapia (Res. COFFITO 424/2013) exige que a
    * titulação profissional apareça por extenso na divulgação, e proíbe
    * substituí-la por expressão genérica. "Fisioterapia Dermatofuncional"

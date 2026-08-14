@@ -47,7 +47,13 @@ export default function Mentory() {
             Para fisioterapeutas
           </p>
 
-          <div className="mt-8">
+          {/* Título real da seção, não um parágrafo com cara de título.
+              O logotipo carrega o nome visualmente e o texto acessível fica
+              no h2: sem ele, os três pilares abaixo eram h3 órfãos, sem
+              seção à qual pertencer — leitor de tela não alcança a área por
+              navegação de títulos, e o buscador não entende que existe um
+              bloco sobre o curso. */}
+          <h2 className="mt-8">
             <span className="sr-only">Mentory Fisio, por Millane Wanessa</span>
             <Image
               src="/marca/mentory.png"
@@ -57,7 +63,7 @@ export default function Mentory() {
               sizes="(max-width: 768px) 92vw, 640px"
               className="h-auto w-full max-w-[640px]"
             />
-          </div>
+          </h2>
 
           <p className="t-display mt-12 max-w-[20ch] text-creme-100">
             Da insegurança à{" "}

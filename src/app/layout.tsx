@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Jost } from "next/font/google";
+import DadosEstruturados from "@/components/DadosEstruturados";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 /**
@@ -23,7 +25,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://millanewanessa.com.br"),
+  metadataBase: new URL(site.url),
   title: {
     default: "Dra. Millane Wanessa | Fisioterapeuta Dermatofuncional em Recife",
     template: "%s · Dra. Millane Wanessa",
@@ -50,6 +52,7 @@ export const metadata: Metadata = {
       "Do centro cirúrgico até a alta: intraoperatório, pós-operatório de cirurgia plástica, lipedema e pós-parto. Consultório no Pina, Recife.",
   },
   robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
@@ -57,7 +60,22 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${bodoni.variable} ${jost.variable}`}>{children}</body>
+      <head>
+        {/* Pinta a barra do navegador no Android com a cor da marca. */}
+        <meta name="theme-color" content="#710014" />
+        <DadosEstruturados />
+      </head>
+      <body className={`${bodoni.variable} ${jost.variable}`}>
+        {/* Primeiro item do foco por teclado: sem ele, quem navega por Tab
+            precisa percorrer o menu inteiro em cada visita. */}
+        <a
+          href="#topo"
+          className="t-label sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-vinho-700 focus:px-6 focus:py-3 focus:text-creme-100"
+        >
+          Pular para o conteúdo
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

@@ -57,9 +57,11 @@ export default function Depoimentos() {
   return (
     <div className="mt-28">
       <Revelar>
-        <p className="t-label text-creme-100/65">
+        {/* h3 porque é subseção do h2 "Mentory Fisio": mantém a cadeia de
+            títulos íntegra para quem navega por leitor de tela. */}
+        <h3 className="t-label text-creme-100/65">
           Quem já passou pelo Mentory
-        </p>
+        </h3>
       </Revelar>
 
       <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-3">
