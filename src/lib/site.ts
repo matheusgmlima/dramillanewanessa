@@ -4,15 +4,36 @@
  * para não precisar caçar string espalhada pelos componentes.
  */
 
+/**
+ * Endereço público do site.
+ *
+ * Enquanto o domínio próprio não existe, o site roda na URL provisória da
+ * Vercel. Apontar o canonical para um domínio que ainda não responde ensina
+ * o buscador a indexar um endereço quebrado, e deixar a versão de aprovação
+ * indexável cria disputa por conteúdo duplicado com o domínio definitivo
+ * depois. Por isso a indexação só liga quando existe domínio de verdade.
+ *
+ * Para publicar de vez: definir NEXT_PUBLIC_SITE_URL nas variáveis de
+ * ambiente da Vercel como https://dramillanewanessa.com.br e refazer o
+ * deploy. Nada mais precisa mudar no código.
+ */
+const dominioProprio = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+const urlDaVercel = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+  : undefined;
+
+/** Só indexa no Google quando o domínio definitivo estiver configurado. */
+export const indexavel = Boolean(dominioProprio);
+
 export const site = {
   nome: "Millane Wanessa",
   nomeCompleto: "Dra. Millane Wanessa",
   titulo: "Fisioterapia Dermatofuncional",
   /**
-   * Domínio de produção. Usado no metadataBase, no sitemap e no JSON-LD.
-   * Trocar aqui basta para os três acompanharem.
+   * Endereço em uso agora: domínio próprio se houver, senão a URL da Vercel,
+   * senão localhost. Alimenta metadataBase, sitemap, canonical e JSON-LD.
    */
-  url: "https://millanewanessa.com.br",
+  url: dominioProprio ?? urlDaVercel ?? "http://localhost:3000",
   /**
    * O Código de Ética da Fisioterapia (Res. COFFITO 424/2013) exige que a
    * titulação profissional apareça por extenso na divulgação, e proíbe
@@ -55,7 +76,7 @@ export const site = {
   },
 
   experiencia: {
-    anos: 6,
+    anos: 13,
   },
 
   mentory: {

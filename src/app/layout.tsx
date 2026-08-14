@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Jost } from "next/font/google";
 import DadosEstruturados from "@/components/DadosEstruturados";
-import { site } from "@/lib/site";
+import { site, indexavel } from "@/lib/site";
 import "./globals.css";
 
 /**
@@ -51,7 +51,11 @@ export const metadata: Metadata = {
     description:
       "Do centro cirúrgico até a alta: intraoperatório, pós-operatório de cirurgia plástica, lipedema e pós-parto. Consultório no Pina, Recife.",
   },
-  robots: { index: true, follow: true },
+  // Enquanto roda na URL provisória da Vercel, o site fica fora do índice:
+  // evita que a versão de aprovação concorra com o domínio definitivo.
+  robots: indexavel
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
   alternates: { canonical: "/" },
 };
 

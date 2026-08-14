@@ -72,7 +72,7 @@ export default function Hero() {
             Acompanho a recuperação de quem passou por cirurgia plástica,
             convive com lipedema ou acabou de ser mãe. São{" "}
             <span className="text-vinho-700">{site.experiencia.anos} anos</span>{" "}
-            de prática clínica dentro do centro cirúrgico e no consultório.
+            de experiência clínica, do centro cirúrgico ao consultório.
           </p>
 
           <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">

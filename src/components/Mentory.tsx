@@ -71,11 +71,26 @@ export default function Mentory() {
             plástica.
           </p>
 
+          {/* Dois movimentos, nesta ordem: o problema que a pessoa reconhece
+              em si mesma, e só depois o formato do curso. A frase de abertura
+              do segundo parágrafo é dela, do Instagram — define o curso por
+              contraste em sete palavras, melhor do que qualquer descrição.
+
+              Ficou de fora o trecho "uma das áreas que mais crescem na
+              fisioterapia": é a única parte do texto original que fala do
+              mercado em vez do que ela entrega, serviria para qualquer curso
+              de qualquer área e não tem fonte. */}
           <p className="t-corpo-grande mt-9 max-w-[54ch] text-creme-100/80">
             A graduação não prepara ninguém para o pós-operatório de cirurgia
             plástica. Você sai sabendo drenagem e descobre na primeira paciente
-            que isso é uma fração do problema. O Mentory Fisio existe para
-            preencher exatamente essa lacuna.
+            que isso é uma fração do problema.
+          </p>
+
+          <p className="t-corpo-grande mt-6 max-w-[54ch] text-creme-100">
+            Aqui você não apenas assiste a aulas. Você vive a rotina de quem
+            atende pós-operatório de cirurgia plástica, acompanhando casos
+            reais em consultório e centro cirúrgico, com supervisão e
+            direcionamento durante três meses de imersão clínica.
           </p>
         </Revelar>
 
