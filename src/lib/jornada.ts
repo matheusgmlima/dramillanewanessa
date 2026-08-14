@@ -107,14 +107,14 @@ export const etapas: Etapa[] = [
  * de ver o percurso inteiro, ouvir alguém que acabou de vivê-lo, no lugar
  * onde viveu, vale mais do que qualquer parágrafo nosso.
  *
- * ATENÇÃO: o vídeo não tem legenda. Boa parte das pessoas assiste sem som, e
- * quem tem deficiência auditiva fica de fora. Vale pedir a ela uma versão
- * legendada.
+ * Vai sem legenda, por decisão do cliente. O texto ao lado do player carrega
+ * o essencial do que ela diz, para que quem assiste sem som — ou não pode
+ * ouvir — não fique sem a informação.
  */
 export const relato = {
   src: "/jornada/relato-bloco.mp4",
   poster: "/jornada/relato-bloco-poster.jpg",
-  duracao: "26 segundos",
+  duracao: "26 segundos · com áudio",
   descricao:
     "Aluna do Mentory Fisio relata a experiência dentro do centro cirúrgico",
 };
