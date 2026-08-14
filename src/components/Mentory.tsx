@@ -65,9 +65,13 @@ export default function Mentory() {
             />
           </h2>
 
+          {/* Formulação dela, do Instagram. Uma tentativa anterior de trocar
+              "referência" por "segurança" criava cacofonia — "da inSEGURança
+              à SEGURança" repete a raiz em palavras seguidas e trava a
+              leitura em voz alta. */}
           <p className="t-display mt-12 max-w-[20ch] text-creme-100">
-            Da insegurança à{" "}
-            <span className="t-italico">segurança clínica</span> em cirurgia
+            De insegura a{" "}
+            <span className="t-italico">referência clínica</span> em cirurgia
             plástica.
           </p>
 
