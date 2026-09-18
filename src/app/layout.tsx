@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Jost } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import DadosEstruturados from "@/components/DadosEstruturados";
 import { site, indexavel } from "@/lib/site";
 import "./globals.css";
@@ -79,6 +80,7 @@ export default function RootLayout({
           Pular para o conteúdo
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
